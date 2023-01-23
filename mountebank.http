@@ -1,0 +1,180 @@
+GET http://localhost:2525/imposters
+
+###
+GET http://localhost:2525/imposters/4000
+Accept: application/json
+
+###
+GET http://localhost:3000/products
+Accept: application/json
+
+###
+GET http://localhost:4000/content?ids=2599b7f4,e1977c9e
+Accept: application/json
+
+###
+# curl -X POST http://localhost:2525/imposters --data '{
+#  "port": 3000,
+#  "protocol": "http",
+#  "stubs": [{
+#    "responses": [{
+#      "is": {
+#        "statusCode": 200,
+#        "headers": {"Content-Type": "application/json"},
+#        "body": {
+#          "products": [
+#            {
+#              "id": "2599b7f4",
+#              "name": "The Midas Dogbowl",
+#              "description": "Pure gold"
+#            },
+#            {
+#              "id": "e1977c9e",
+#              "name": "Fishtank Amore",
+#              "description": "Show your fish some love"
+#            }
+#          ],
+#          "_links": {
+#            "next": "/products?page=2&itemsPerPage=2"
+#          }
+#        }
+#      }
+#    }]
+#  }]
+#}'
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 3000,
+  "protocol": "http",
+  "stubs": [{
+    "responses": [{
+      "is": {
+        "statusCode": 200,
+        "headers": {"Content-Type": "application/json"},
+        "body": {
+          "products": [
+            {
+              "id": "2599b7f4",
+              "name": "The Midas Dogbowl",
+              "description": "Pure gold"
+            },
+            {
+              "id": "e1977c9e",
+              "name": "Fishtank Amore",
+              "description": "Show your fish some love"
+            }
+          ],
+          "_links": {
+            "next": "/products?page=2&itemsPerPage=2"
+          }
+        }
+      }
+    }]
+  }]
+}
+
+###
+
+# curl -X POST http://localhost:2525/imposters --data '{
+#  "port": 3000,
+#  "protocol": "http",
+#  "stubs": [
+#    {
+#      "predicates": [{
+#        "equals": {
+#          "query": { "page": "2" }
+#        }
+#      }],
+#      "responses": [{
+#        "is": {
+#          "statusCode": 200,
+#          "headers": {"Content-Type": "application/json"},
+#          "body": { "products": [] }
+#        }
+#      }]
+#    },
+#    {
+#      "responses": [{
+#        "is": {
+#          "statusCode": 200,
+#          "headers": { "Content-Type": "application/json" },
+#          "body": {
+#            "products": [
+#              {
+#                "id": "2599b7f4",
+#                "name": "The Midas Dogbowl",
+#                "description": "Pure gold"
+#              },
+#              {
+#                "id": "e1977c9e",
+#                "name": "Fishtank Amore",
+#                "description": "Show your fish some love"
+#              }
+#            ],
+#            "_links": {
+#              "next": "/products?page=2&itemsPerPage=2"
+#            }
+#          }
+#        }
+#      }]
+#    }
+#  ]
+#}'
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 3000,
+  "protocol": "http",
+  "stubs": [
+    {
+      "predicates": [{
+        "equals": {
+          "query": { "page": "2" }
+        }
+      }],
+      "responses": [{
+        "is": {
+          "statusCode": 200,
+          "headers": {"Content-Type": "application/json"},
+          "body": { "products": [] }
+        }
+      }]
+    },
+    {
+      "responses": [{
+        "is": {
+          "statusCode": 200,
+          "headers": { "Content-Type": "application/json" },
+          "body": {
+            "products": [
+              {
+                "id": "2599b7f4",
+                "name": "The Midas Dogbowl",
+                "description": "Pure gold"
+              },
+              {
+                "id": "e1977c9e",
+                "name": "Fishtank Amore",
+                "description": "Show your fish some love"
+              }
+            ],
+            "_links": {
+              "next": "/products?page=2&itemsPerPage=2"
+            }
+          }
+        }
+      }]
+    }
+  ]
+}
+
+###
+
+DELETE http://localhost:2525/imposters
+
+###
+
+GET http://localhost:5000/products

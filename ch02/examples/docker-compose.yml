@@ -1,0 +1,9 @@
+version: "3"
+services:
+  mountebank:
+      container_name: mountebank
+      image: "bbyars/mountebank"
+      ports:
+        - "2525:2525"
+        - "3000:3000"
+        - "4000:4000"
