@@ -64,7 +64,7 @@ ipywidgets @ file:///tmp/build/80754af9/ipywidgets_1610481889018/work
 isort @ file:///tmp/build/80754af9/isort_1624300337312/work
 itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
 jedi @ file:///opt/concourse/worker/volumes/live/12a2c347-a8e4-4b62-5b19-dcc92a2254f6/volume/jedi_1606932552286/work
-Jinja2==2.10.3
+Jinja2==2.11.3
 joblib @ file:///tmp/build/80754af9/joblib_1613502643832/work
 json5 @ file:///tmp/build/80754af9/json5_1624432770122/work
 jsonschema @ file:///tmp/build/80754af9/jsonschema_1602607155483/work
