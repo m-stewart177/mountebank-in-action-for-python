@@ -118,7 +118,7 @@ pyerfa @ file:///opt/concourse/worker/volumes/live/f87989f6-b347-4e0a-7be4-c3773
 pyflakes @ file:///home/ktietz/src/ci_ipy2/pyflakes_1612551159640/work
 Pygments @ file:///tmp/build/80754af9/pygments_1621606182707/work
 PyHamcrest==2.0.3
-PyJWT==1.7.1
+PyJWT==2.4.0
 pylint==2.14.4
 pyls-black @ file:///tmp/build/80754af9/pyls-black_1607553132291/work
 pyls-spyder @ file:///tmp/build/80754af9/pyls-spyder_1613849700860/work
