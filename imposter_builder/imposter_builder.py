@@ -45,6 +45,9 @@ class ImposterBuilder:
         self._default_response = HttpResponse(body=body, status_code=status_code, headers=headers, mode=mode)
         return self
 
+    def from_template(self, package, template):
+        pass
+
     def create(self):
         return Imposter(port=self.port, protocol=self.protocol, name=self.name, stubs=self.stubs,
                         default_response=self._default_response)

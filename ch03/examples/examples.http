@@ -1,0 +1,33 @@
+GET http://localhost:3000
+
+###
+
+DELETE http://localhost:2525/imposters
+
+###
+
+POST http://localhost:2525/imposters
+
+< ./helloWorld.json
+
+###
+
+POST http://localhost:2525/imposters
+
+< helloWorld2.json
+
+###
+
+POST http://localhost:2525/imposters
+
+< errorDefaults.json
+
+###
+
+POST http://localhost:2525/imposters
+
+< inventory.json
+
+###
+
+
