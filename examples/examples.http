@@ -1,0 +1,39 @@
+http://localhost:2525/imposters/
+
+###
+
+http://localhost:2525/imposters/3000
+
+###
+
+
+http://localhost:3000/test
+
+###
+
+POST http://localhost:3000/api/123456
+
+{
+    "name": "foobar"
+}
+
+###
+
+POST http://localhost:3000/api/987654
+
+{
+    "name": "Situation",
+    "description": "Returned when things go foobar"
+}
+
+###
+
+http://localhost:3000/user
+
+###
+
+http://localhost:3000/user/3
+
+###
+
+http://localhost:3000/user/99

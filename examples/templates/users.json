@@ -1,0 +1,73 @@
+{
+  "stubs": [
+          {% for user in users %}
+          {
+              "predicates": [
+                  {
+                      "equals": {
+                          "path": "/user/{{ user.id }}",
+                          "method": "GET"
+                      }
+                  }
+              ],
+              "responses": [
+                  {
+                      "is": {
+                          "body": "{\"id\":{{ user.id }},\"name\",:\"{{ user.name }}\",\"'email\":\"{{ user.email }}\"}"
+                      }
+                  }
+              ]
+          },
+          {% endfor %}
+          {
+              "predicates":[
+                  {
+                      "matches": {
+                          "path": "/user/.*"
+                      }
+                  }
+              ] ,
+              "responses": [
+                  {
+                      "is": {
+                        "statusCode": 404,
+                        "body": "{\"errorCode\":\"404 (Not Found)\",\"reason\":\"User with id of $ID not found\"}"
+                      },
+                      "_behaviors":
+                        {
+                          "copy": [
+                              {
+                                "from": "path",
+                                "into": "$ID",
+                                "using": {
+                                  "method": "regex",
+                                  "selector": "\\d+$",
+                                  "options": {
+                                    "ignoreCase": false,
+                                    "multiline": false
+                                  }
+                                }
+                              }
+                          ]
+                        }
+                  }
+                ]
+          },
+          {
+              "predicates": [
+                    {
+                        "equals": {
+                        "path": "/user"
+                        }
+                    }
+              ],
+              "responses": [
+                  {
+                      "is": {
+                          "body": "[{% for user in users %}{\"id\":{{ user.id }},\"name\":\"{{ user.name }}\",\"email\":\"{{ user.email }}\"},{% endfor %}]"
+                      }
+                  }
+              ]
+          }
+  ]
+}

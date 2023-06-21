@@ -1,0 +1,17 @@
+{
+  "stubs": [{
+    "predicates": [{
+        "deepEquals": {
+            "method": "GET",
+            "path": "/test"
+        }
+    }],
+    "responses": [{
+      "is": {
+        "statusCode": 200,
+        "headers": { "Content-Type": "text/plain" },
+        "body": "Hello, {{ name }}!"
+      }
+    }]
+  }]
+}
